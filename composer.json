@@ -1,6 +1,6 @@
 {
     "name": "julioccorreia/reverb-hooks",
-    "description": "Fluent event hooks for Lavarel Reverb.",
+    "description": "Fluent event hooks for Laravel Reverb.",
     "license": "MIT",
     "keywords": [
         "laravel",
