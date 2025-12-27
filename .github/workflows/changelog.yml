@@ -4,13 +4,13 @@ on:
   push:
     branches:
       - main
-    # Opcional: só rodar se o push não for do próprio bot (para evitar loop infinito)
     paths-ignore:
       - 'CHANGELOG.md'
       - 'composer.json'
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   changelog:
@@ -27,12 +27,26 @@ jobs:
         uses: TriPSs/conventional-changelog-action@v5
         id: changelog
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          git-message: 'chore(release): update CHANGELOG.md {version}'
+          github-token: ${{ secrets.RELEASE_TOKEN }}
+          git-push: 'false'
           output-file: 'CHANGELOG.md'
-          skip-git-pull: 'true'
           skip-version-file: 'true'
           
+      - name: Create Pull Request
+        if: steps.changelog.outputs.skipped == 'false'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.RELEASE_TOKEN }}
+          commit-message: 'chore(release): v${{ steps.changelog.outputs.version }}'
+          branch: 'release/v${{ steps.changelog.outputs.version }}'
+          title: 'chore(release): v${{ steps.changelog.outputs.version }}'
+          body: |
+            ## Automated Release PR
+            This PR updates the **CHANGELOG.md** for version ${{ steps.changelog.outputs.version }}.
+            
+            ${{ steps.changelog.outputs.clean_changelog }}
+          base: main
+
       - name: Create Release
         uses: softprops/action-gh-release@v2
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
