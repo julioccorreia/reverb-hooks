@@ -2,4 +2,9 @@
 .phpunit.result.cache
 /phpunit.xml
 composer.lock
-.env
+.coverage
+/.fleet
+/.idea
+/.nova
+/.vscode
+/.zed
