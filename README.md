@@ -1,7 +1,7 @@
 # Laravel Reverb Hooks
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/julioccorreia/reverb-hooks.svg?style=flat-square)](https://packagist.org/packages/julioccorreia/reverb-hooks)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/julioccorreia/reverb-hooks/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/julioccorreia/reverb-hooks/actions)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/julioccorreia/reverb-hooks/tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/julioccorreia/reverb-hooks/actions)
 [![Total Downloads](https://img.shields.io/packagist/dt/julioccorreia/reverb-hooks.svg?style=flat-square)](https://packagist.org/packages/julioccorreia/reverb-hooks)
 [![PHPStan Level 9](https://img.shields.io/badge/PHPStan-level%209-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
 
@@ -23,10 +23,10 @@ You can install the package via composer:
 composer require julioccorreia/reverb-hooks
 ```
 
-# Usage
+## Usage
 The best place to register your hooks is in the `boot` method of your `AppServiceProvider` or a dedicated `EventServiceProvider`.
 
-# Channel Hooks
+## Channel Hooks
 You can listen to when channels are created or removed. Supports wildcards for flexible filtering.
 
 ```php
@@ -43,7 +43,7 @@ ReverbHooks::onChannelCreated('chat.*', function ($event) {
 });
 ```
 
-# Message Hooks
+## Message Hooks
 Intercept messages as they flow through the Reverb server.
 
 ```php
@@ -58,7 +58,7 @@ ReverbHooks::onMessageReceived(function ($event) {
 });
 ```
 
-# Connection Hooks
+## Connection Hooks
 Monitor the health of your WebSocket server.
 
 ```php
@@ -68,7 +68,7 @@ ReverbHooks::onConnectionPruned(function ($event) {
 });
 ```
 
-# Available
+## Available
 
 | Method | Description |
 | --- | --- |
@@ -78,7 +78,7 @@ ReverbHooks::onConnectionPruned(function ($event) {
 | onMessageReceived($callback) | Triggered upon receiving a raw message from a client. |
 | onConnectionPruned($callback) | Triggered when the server cleans up an inactive connection. |
 
-# Development & Quality
+## Development & Quality
 This package maintains high code quality standards:
 
  - **PHPStan**: Analyzed at Level 9 for maximum type safety.
@@ -86,23 +86,23 @@ This package maintains high code quality standards:
  - **Rector**: Automated code refactoring for modern PHP features.
  - **Strict Types**: All files use declare(strict_types=1).
 
-# Testing
+## Testing
 
 You can run the tests using Pest:
 ```php
 composer test
 ```
 
-# Changelog
+## Changelog
 
 Please see CHANGELOG for more information on what has changed recently.
 
-# Credits
+## Credits
 **Júlio César Correia Gazige**
 
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/julioccorreia)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/julioccorreia/)
 
 
-# License
+## License
 The MIT License (MIT). Please see License File for more information.
