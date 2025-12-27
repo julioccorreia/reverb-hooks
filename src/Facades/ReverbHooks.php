@@ -8,11 +8,11 @@ use Closure;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static void onChannelCreated((array | string | Closure) $channels, (Closure | string | null) $callback = null)
- * @method static void onChannelRemoved((array | string | Closure) $channels, (Closure | string | null) $callback = null)
- * @method static void onMessageSent((array | string | Closure) $channels, (Closure | string | null) $callback = null)
- * @method static void onMessageReceived((Closure | string) $callback)
- * @method static void onConnectionPruned((Closure | string) $callback)
+ * @method static void onChannelCreated(array|string|Closure $channels, Closure|string|null $callback = null)
+ * @method static void onChannelRemoved(array|string|Closure $channels, Closure|string|null $callback = null)
+ * @method static void onMessageSent(array|string|Closure $channels, Closure|string|null $callback = null)
+ * @method static void onMessageReceived(Closure|string $callback)
+ * @method static void onConnectionPruned(Closure|string $callback)
  *
  * @see \JulioCCorreia\ReverbHooks\ReverbHooksManager
  */
