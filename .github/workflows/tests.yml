@@ -75,3 +75,18 @@ jobs:
 
       - name: Execute tests
         run: composer test:coverage
+  
+  tests-passed:
+    needs: tests
+    name: Tests Passed (Gatekeeper)
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Verify Tests
+        run: |
+          # Check the status of the 'tests' job (the entire matrix)
+          if [[ "${{ needs.tests.result }}" != "success" ]]; then
+            echo "Test matrix failed or was cancelled."
+            exit 1
+          fi
+          echo "All tests in the matrix passed successfully! 🚀"
