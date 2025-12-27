@@ -13,5 +13,5 @@ phpstan.neon.dist export-ignore
 pint.json export-ignore
 rector.php export-ignore
 
-CONTRIBUTING.md export-ignore
-PULL_REQUEST_TEMPLATE.md export-ignore
+CHANGELOG.MD export-ignore
+README.MD export-ignore
