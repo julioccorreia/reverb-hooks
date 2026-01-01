@@ -24,7 +24,7 @@ jobs:
           fetch-depth: 0
 
       - name: Generate Changelog
-        uses: TriPSs/conventional-changelog-action@v5
+        uses: TriPSs/conventional-changelog-action@v6
         id: changelog
         with:
           github-token: ${{ secrets.RELEASE_TOKEN }}
